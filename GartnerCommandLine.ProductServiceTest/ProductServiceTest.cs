@@ -44,36 +44,6 @@ namespace GartnerCommandLine.ProductServiceTest
         #endregion
 
         [Fact]
-        public async Task CreateProducts_Should_ThrowException()
-        {
-            var client = new NotCapterra ();
-            var mockProductList = new Mock<List<IProduct>>();
-            var mockProductRepository = new Mock<IProductRepositoryU>();
-            _productService = new ProductService(mockProductRepository.Object);
-
-            _mockProductService.Setup(foo => foo.CreateProducts(It.IsAny<IClient>(), It.IsAny<List<IProduct>>())).ThrowsAsync(new System.Exception("Invalid client"));
-
-            await Assert.ThrowsAsync<System.Exception>(async () => 
-            
-            await _productService.CreateProducts(
-                client, mockProductList.Object)
-            );
-        }
-
-        [Fact]
-        public async Task Should_Throw_Null_Exception()
-        {
-            var client = new Capterra();
-            var mockProductList = new Mock<List<IProduct>>();
-            var mockProductRepository = new Mock<IProductRepositoryU>();
-            _productService = new ProductService(mockProductRepository.Object);
-
-            mockProductRepository.Setup(foo => foo.CreateProducts(It.IsAny<IClient>(), It.IsAny<List<IProduct>>())).ReturnsAsync(true);
-        
-            await Assert.ThrowsAsync<System.Exception>(async () => await _productService.CreateProducts(client, mockProductList.Object));
-        }
-
-        [Fact]
         public async Task CreateProducts_Returns_True()
         {
             var client = new Capterra();
