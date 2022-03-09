@@ -49,7 +49,7 @@ namespace ProductImport
 					foreach (var item in items)
 					{
 						//each item writes his own output
-						Console.WriteLine(item.ToString());
+						Console.WriteLine($"importing: {item.ToString()}");
 					}
 				}
 			}
