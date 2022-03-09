@@ -41,7 +41,7 @@ dotnet test
 
 
 
-The architecture
+# The architecture
 
 The architecture is think as a multi tenant application, the application handles interfaces for Clients, and for each new client , you use the `IClient` , this made easy to have new customers with different formats
 
