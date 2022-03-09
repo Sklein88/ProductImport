@@ -11,6 +11,7 @@ namespace Application.Models
     {
         #region Properties
         
+        //used to deserealize json
         public List<SoftwareAdviceProduct> products { get ; set; } = new List<SoftwareAdviceProduct>();
         public int Id { get; set; }
         public string title { get; set; } = string.Empty;
