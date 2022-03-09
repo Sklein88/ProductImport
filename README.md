@@ -30,3 +30,23 @@ dotnet test
 ![image](https://user-images.githubusercontent.com/4528130/157537214-5352e998-ac8e-4def-9a32-37b121b4db59.png)
 
 
+
+The architecture
+
+The architecture is think as a multi tenant application, the application handles interfaces for Clients, and for each new client , you use the `IClient` , this made easy to have new customers with different formats
+
+![image](https://user-images.githubusercontent.com/4528130/157541496-153eee95-3e63-42df-b386-ec63fa0c26ec.png)
+
+
+Also this makes really simply to create new ones, like `SoftwareAdvice` 
+
+![image](https://user-images.githubusercontent.com/4528130/157541770-ba5e5de2-914a-4897-9560-ea325f0c8b9a.png)
+
+
+And the project code base looks pretty simple, also we have the repository expecting a `IClient` therefore we can also add a `DbContext` to each one to handle each separate database por client with his own prodcuts / data model.
+
+![image](https://user-images.githubusercontent.com/4528130/157542196-8d620f84-f889-4489-b0c0-c07ef3164e83.png)
+
+
+
+
