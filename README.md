@@ -4,7 +4,7 @@
 # Debug the app from visual studio
 
 ![image](https://user-images.githubusercontent.com/4528130/157557277-b08cf158-9e31-408f-b2f8-bfe6a5c470c4.png)
-![image](https://user-images.githubusercontent.com/4528130/157557599-4440eaf6-0605-422d-8951-905d8b31c945.png)
+![image](https://user-images.githubusercontent.com/4528130/157557637-ad503d06-045f-4c45-85b4-9095b48ae12b.png)
 
 Be sure to set Copy to output directory if you add a new `IClient` to configure the file for debuging (te be copy in the debug folder)
 
