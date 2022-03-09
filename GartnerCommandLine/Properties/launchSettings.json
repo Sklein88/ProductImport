@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GartnerCommandLine": {
+      "commandName": "Project",
+      "commandLineArgs": "Capterra feed-products/capterra.yaml"
+    }
+  }
+}
