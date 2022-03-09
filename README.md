@@ -1,6 +1,15 @@
 # ProductImport
  Product Import Console Application is a console application with `multi threading` capabilities to process a file to a Client, easy to modify to accept new clients with 2 availables formats: json and yaml.
 
+# Debug the app from visual studio
+
+![image](https://user-images.githubusercontent.com/4528130/157557277-b08cf158-9e31-408f-b2f8-bfe6a5c470c4.png)
+
+Be sure to set Copy to output directory if you add a new `IClient` to configure the file for debuging (te be copy in the debug folder)
+
+![image](https://user-images.githubusercontent.com/4528130/157557440-71c3e661-cece-42b5-8356-53425e7d96a8.png)
+
+
 # Build the import app
 
 ```console
@@ -8,7 +17,7 @@ dotnet build
 cd bin\Release\net6.0
 ```
 
-# Run the app
+# Run the app in console
 
 ```console
 dotnet ProductImport.dll Capterra feed-products/capterra.yaml
