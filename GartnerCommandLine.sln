@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GartnerCommandLine", "GartnerCommandLine\GartnerCommandLine.csproj", "{11761844-ECBF-4680-8D0D-9FCAB2CF4B61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductImport", "GartnerCommandLine\ProductImport.csproj", "{11761844-ECBF-4680-8D0D-9FCAB2CF4B61}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{E11900A7-10AE-4022-8D56-19E6852D4468}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GartnerCommandLine.ProductServiceTest", "GartnerCommandLine.ProductServiceTest\GartnerCommandLine.ProductServiceTest.csproj", "{4E3F6A1C-5F6D-4CA4-B9D2-545462B3B678}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1190817F-66E4-486F-A710-49783BD69607}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
