@@ -15,6 +15,14 @@ dotnet ProductImport.dll Capterra feed-products/capterra.yaml
 dotnet ProductImport.dll Softwareadvice feed-products/softwareadvice.json
 ```
 
+# Run the app multi client
+
+```console
+dotnet ProductImport.dll Capterra feed-products/capterra.yaml;dotnet ProductImport.dll Capterra feed-products/capterra.yaml;
+dotnet ProductImport.dll Capterra feed-products/capterra.yaml;
+```
+
+
 # Output example
 
 ![testresult](https://user-images.githubusercontent.com/4528130/157536880-a8d084ed-e2f6-4996-958e-e815bfcbaedd.png)
