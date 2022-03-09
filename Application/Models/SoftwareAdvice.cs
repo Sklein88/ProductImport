@@ -10,8 +10,10 @@ namespace Application.Models
 {
     public class SoftwareAdvice : IClient
     {
+        #region Properties
         public int Id { get; set; }
         public string Name { get { return "SoftwareAdvice"; } }
+        #endregion
 
         public List<IProduct> Deserialize(StreamReader reader)
         {
