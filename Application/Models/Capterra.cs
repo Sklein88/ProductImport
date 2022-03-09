@@ -6,10 +6,11 @@ namespace Application.Models
 {
     public class Capterra : IClient
     {
+        #region Properties
         public int Id { get; set; }
         public string Name { get { return "Capterra"; } }
-
-        public List<IProduct> Deserealize(StreamReader reader)
+        #endregion
+        public List<IProduct> Deserialize(StreamReader reader)
         {
 			var stream = new YamlStream();
 			stream.Load(reader);

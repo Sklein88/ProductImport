@@ -10,7 +10,7 @@ namespace Application.Models
     {
         public int Id { get; set; } 
         public string Name { get; }
-        public abstract List<IProduct> Deserealize(StreamReader reader);
+        public abstract List<IProduct> Deserialize(StreamReader reader);
 
     }
 }

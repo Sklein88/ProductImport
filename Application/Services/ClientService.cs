@@ -12,6 +12,7 @@ namespace Application.Services
     {        
         public Task<IClient> GetClientByName(string name)
         {
+            //this could be resolve with a 
             switch (name.ToUpper()) { 
                 case "CAPTERRA":
                     return Task.FromResult<IClient>(new Capterra());

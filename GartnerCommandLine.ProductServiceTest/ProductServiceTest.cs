@@ -27,7 +27,7 @@ namespace GartnerCommandLine.ProductServiceTest
             public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
             public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-            public List<IProduct> Deserealize(StreamReader reader)
+            public List<IProduct> Deserialize(StreamReader reader)
             {
                 throw new NotImplementedException();
             }

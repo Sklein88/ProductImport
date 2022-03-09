@@ -15,14 +15,16 @@ try
 		ProductService _productService = new ProductService(repository);
 		ClientService _clientService = new ClientService();
 
+		//call the client service asking for the client
 		var client = await _clientService.GetClientByName(clientNameByParam);
 
-		var items = client.Deserealize(reader);
+		var items = client.Deserialize(reader);
 
 		await _productService.CreateProducts(client, items.ToList<IProduct>());
 
 		foreach (var item in items)
 		{
+			//each item writes his own output
 			Console.WriteLine(item.ToString());
 		}
 	}

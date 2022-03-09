@@ -13,7 +13,7 @@ namespace Application.Models
         public int Id { get; set; }
         public string Name { get { return "SoftwareAdvice"; } }
 
-        public List<IProduct> Deserealize(StreamReader reader)
+        public List<IProduct> Deserialize(StreamReader reader)
         {
             string json = reader.ReadToEnd();
             SoftwareAdviceProduct softwareAdviceProduct =
