@@ -1,5 +1,5 @@
 # ProductImport
- Product Import Console Application
+ Product Import Console Application is a console application with `multi threading` capabilities to process a file to a Client, easy to modify to accept new clients with 2 availables formats: json and yaml.
 
 # Build the import app
 
