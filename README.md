@@ -19,13 +19,13 @@ dotnet ProductImport.dll Softwareadvice feed-products/softwareadvice.json
 
 ![testresult](https://user-images.githubusercontent.com/4528130/157536880-a8d084ed-e2f6-4996-958e-e815bfcbaedd.png)
 
-# Run the app multi client
+# Execute in a single line the App multiple times
 
 ```console
 dotnet ProductImport.dll Capterra feed-products/capterra.yaml;dotnet ProductImport.dll Capterra feed-products/capterra.yaml;
 dotnet ProductImport.dll Capterra feed-products/capterra.yaml;
 ```
-# The Results off all the operations, multiple files and clients at the same time
+results off all the operations, multiple files and clients at the same time.
 
 ![image](https://user-images.githubusercontent.com/4528130/157554609-fa959860-a5c3-4929-af1f-c838cdc58f82.png)
 
