@@ -10,6 +10,12 @@ namespace Application.Models
         public int Id { get; set; }
         public string Name { get { return "Capterra"; } }
         #endregion
+
+        /// <summary>
+        /// Deserialize 
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns>List<IProduct></returns>
         public List<IProduct> Deserialize(StreamReader reader)
         {
 			var stream = new YamlStream();
