@@ -39,8 +39,6 @@ namespace ProductImport
 			{
 				using (var reader = new StreamReader(filename))
 				{
-
-
 					//call the client service asking for the client
 					var client = await _clientService.GetClientByName(clientNameByParam);
 

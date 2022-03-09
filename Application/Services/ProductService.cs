@@ -23,7 +23,14 @@ namespace Application.Services
 
         public async Task<bool> CreateProducts(IClient client, List<IProduct> products)
         {
-            return await _productRepository.CreateProducts(client, products);
+            try
+            { 
+                return await _productRepository.CreateProducts(client, products);
+            }
+            catch(Exception ex)
+            {
+                return await Task.FromException<bool>(ex);
+            }
         }
     }
 }

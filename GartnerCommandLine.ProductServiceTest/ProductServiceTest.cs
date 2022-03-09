@@ -53,7 +53,11 @@ namespace GartnerCommandLine.ProductServiceTest
 
             _mockProductService.Setup(foo => foo.CreateProducts(It.IsAny<IClient>(), It.IsAny<List<IProduct>>())).ThrowsAsync(new System.Exception("Invalid client"));
 
-            await Assert.ThrowsAsync<System.Exception>(async () => await _productService.CreateProducts(client, mockProductList.Object));
+            await Assert.ThrowsAsync<System.Exception>(async () => 
+            
+            await _productService.CreateProducts(
+                client, mockProductList.Object)
+            );
         }
 
         [Fact]
