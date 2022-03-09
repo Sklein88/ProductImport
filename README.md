@@ -6,7 +6,7 @@
 ![image](https://user-images.githubusercontent.com/4528130/157557277-b08cf158-9e31-408f-b2f8-bfe6a5c470c4.png)
 ![image](https://user-images.githubusercontent.com/4528130/157557637-ad503d06-045f-4c45-85b4-9095b48ae12b.png)
 
-Be sure to set Copy to output directory if you add a new `IClient` to configure the file for debuging (te be copy in the debug folder)
+Be sure to set Copy to output directory to "Always copy" if you add a new `IClient` to configure the file for debuging (te be copy in the debug folder)
 
 ![image](https://user-images.githubusercontent.com/4528130/157557440-71c3e661-cece-42b5-8356-53425e7d96a8.png)
 
