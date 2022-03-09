@@ -36,6 +36,10 @@ void RegisterServices()
     _serviceProvider = services.BuildServiceProvider(true);
 }
 
+//Added DI and for that the DI region
+//and the RegisterServices method in here, the app 
+//starts in <ConsoleApplication>().Run() , after that everything is disposed.
+
 RegisterServices();
 IServiceScope scope = _serviceProvider.CreateScope();
 
