@@ -22,11 +22,11 @@ namespace GartnerCommandLine.ProductServiceTest
         private IProductService _productService;
         private IProductRepositoryU _productRepositoryU;
 
+
         public class NotCapterra : IClient
         {
-            public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+            public int Id { get; set; }
+            public string Name { get; set; }
             public List<IProduct> Deserialize(StreamReader reader)
             {
                 throw new NotImplementedException();
