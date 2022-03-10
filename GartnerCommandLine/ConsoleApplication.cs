@@ -16,7 +16,6 @@ namespace ProductImport
 
 		private readonly IProductService _productService;
 		private readonly IProductRepositoryU _productRepository;
-
 		private readonly IClientService _clientService;
 
 		public ConsoleApplication(IProductService productService,
@@ -53,7 +52,11 @@ namespace ProductImport
 					}
 				}
 			}
-			catch(Exception ex)
+			catch (FileNotFoundException ex)
+			{
+				Console.WriteLine("File not found");
+			}
+			catch (Exception ex)
             {
 				Console.WriteLine($"{ex.Message} {ex.InnerException} {ex.Source}");
             }
