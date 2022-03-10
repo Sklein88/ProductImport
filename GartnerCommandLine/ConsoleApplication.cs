@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Application.Client;
+﻿using Application.Client;
 using Application.Interfaces;
 using Application.Models;
-using Application.Repositories;
-using Application.Services;
 
 namespace ProductImport
 {
     public class ConsoleApplication
     {
-
 		private readonly IProductService _productService;
-		private readonly IProductRepositoryU _productRepository;
-
 		private readonly IClientService _clientService;
 
 		public ConsoleApplication(IProductService productService,
