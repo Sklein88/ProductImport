@@ -24,14 +24,12 @@ namespace ProductImport
 			IClientService clientService)
 		{
 			_productService = productService;
-			_productRepository = productRepository;
 			_clientService = clientService;
 		}
 
 		public async void Run()
 		{
 			string filename = Environment.GetCommandLineArgs()[2];
-			string ext = Path.GetExtension(filename);
 			string clientName = Environment.GetCommandLineArgs()[1];
 
 			try
