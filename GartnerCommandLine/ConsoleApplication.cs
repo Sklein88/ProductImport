@@ -32,25 +32,17 @@ namespace ProductImport
 		{
 			string filename = Environment.GetCommandLineArgs()[2];
 			string ext = Path.GetExtension(filename);
-			string clientName = filename.Substring(0, filename.Length - ext.Length);
-			string clientNameByParam = Environment.GetCommandLineArgs()[1];
+			string clientName = Environment.GetCommandLineArgs()[1];
 
 			try
 			{
 				using (var reader = new StreamReader(filename))
 				{
-					//call the client service asking for the client
-					var client = await _clientService.GetClientByName(clientNameByParam);
-
+					var client = await _clientService.GetClientByName(clientName);
 					var items = client.Deserialize(reader);
-
 					await _productService.CreateProducts(client, items.ToList<IProduct>());
-
 					foreach (var item in items)
-					{
-						//each item writes his own output
 						Console.WriteLine($"importing: {item.ToString()}");
-					}
 				}
 			}
 			catch(Exception ex)
