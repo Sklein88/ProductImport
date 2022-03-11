@@ -1,25 +1,110 @@
-We update our inventory of SaaS products from several sources.  Each source provides its content to us in a different format.  Write a command line script to import the products.
+# SQL Test Assignment
 
-Input/output should be something like this:
- 
-````bash
-$ import capterra feed-products/capterra.yaml
+Attached is a mysqldump of a database to be used during the test.
 
-importing: Name: "GitHub";  Categories: Bugs & Issue Tracking, Development Tools; Twitter: @github
-importing: Name: "Slack"; Categories: Instant Messaging & Chat, Web Collaboration, Productivity; Twitter: @slackhq
-````
+Below are the questions for this test. Please enter a full, complete, working SQL statement under each question.
+We do not want the answer to the question. 
+We want the SQL command to derive the answer. 
+We will copy/paste these commands to test the validity of the answer.
 
-Considerations:
+**Example:**
 
-- Currently, we are importing products from 2 sites: capterra and softwareadvice.  They send us their weekly feed via email.  This weeks files are in /feed-products
-- We plan to add a third provider soon who will make their feed available via csv output online via a url (you don't need to implement this, just keep it mind)
-- Do not implement any data persistence code, just provide some dummy classes that echo what they are doing.  Keep in mind that the company is planning to switch from MySQL to MongoDB in 3 months.
-- The focus here should be on design, more than implementation.  We are less interested in seeing that this works than in seeing how you approach the problem.
-- Please provide at least some unit tests (it is not required to write them for every class). Functional tests are also a plus.
-- Please provide a short summary detailing anything you think is relevant, for example:
-  - Installation steps
-  - How to run your code / tests
-  - Where to find your code
-  - Was it your first time writing a unit test, using a particular framework, etc?
-  - What would you have done differently if you had had more time
-  - Etc.
+_Q. Select all users_
+
+- Please return at least first_name and last_name
+
+SELECT first_name, last_name FROM users;
+
+
+------
+
+**— Test Starts Here —**
+
+1. Select users whose id is either 3,2 or 4
+- Please return at least: all user fields
+
+select * from users where (id = 3 or id = 2 or id = 4);
+select id, first_name, last_name, email, status, created from users where id in (3, 2, 4);
+
+2. Count how many basic and premium listings each active user has
+- Please return at least: first_name, last_name, basic, premium
+
+	select u.first_name, u.last_name,
+		count(if(l.status=2,1,null)) as Basic,
+		count(if(l.status=3,1,null)) as Premium
+	from users u
+	left join listings l
+	on u.id = l.user_id  
+	where u.status = 2 and Premium > 0
+	group by u.first_name, u.last_name, l.status
+
+
+3. Show the same count as before but only if they have at least ONE premium listing
+- Please return at least: first_name, last_name, basic, premium
+
+	select u.first_name, u.last_name,
+		count(if(l.status=2,1,null)) as Basic,
+		count(if(l.status=3,1,null)) as Premium
+	from users u
+	left join listings l
+	on u.id = l.user_id  
+	where u.status = 2 and Premium > 0
+	group by u.first_name, u.last_name, l.status
+	having count(if(l.status=3,1,null)) >= 1
+
+4. How much revenue has each active vendor made in 2013
+- Please return at least: first_name, last_name, currency, revenue
+
+	select u.first_name, u.last_name, c.currency, SUM(c.price)
+	from clicks c
+	left join listings l
+	on l.id = c.listing_id
+	left join users u
+	on u.id = l.user_id
+	where YEAR(c.created) = 2013 and l.user_id is not null
+	group by u.first_name, u.last_name, c.currency
+
+
+
+5. Insert a new click for listing id 3, at $4.00
+- Find out the id of this new click. Please return at least: id
+
+	INSERT INTO `clicks` (listing_id, price, currency, created) VALUES (3, 4.00, 'USD', '2013-09-15 16:18:43');
+	select LAST_INSERT_ID();
+
+
+6. Show listings that have not received a click in 2013
+- Please return at least: listing_name
+
+	select l.name
+	from listings l
+	where l.id NOT IN
+	(
+		SELECT  listing_id
+		FROM    clicks c
+		where year(c.created) <> 2013
+	);
+
+
+7. For each year show number of listings clicked and number of vendors who owned these listings
+- Please return at least: date, total_listings_clicked, total_vendors_affected
+
+
+	select  YEAR(c.created) AS Year, 
+			count(l.id) AS total_listings_clicked,
+			count(u.id) AS total_vendors_affected
+	from clicks c
+	left join listings l
+	on l.id = c.listing_id
+	left join users u
+	on u.id = l.user_id and u.status = 2
+	group by YEAR(c.created);
+
+8. Return a comma separated string of listing names for all active vendors
+- Please return at least: first_name, last_name, listing_names
+
+	select u.first_name AS Name, u.last_name AS Surname, GROUP_CONCAT(l.name)
+	from users u
+	left join listings l
+	on u.id = l.user_id
+	group by u.id
